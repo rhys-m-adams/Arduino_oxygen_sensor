@@ -15,6 +15,10 @@ Parts:
 1 560 ohm resistor
 1 LCD display with potentiometer resistor "1528-1502-ND LCD MOD 32DIG 16X2 TRANSMISV WHT"
 1 EC410 oxygen sensor
+1 outlet to USB MICRO B adapter. I used the two parts to accomplish this:
+ 490-SWI3-5-N-I38 SWI3-5-N-I38
+ RoHS1 895-CUB-100-BK CUB-100-BK USB A To USB MICRO B
+
 1 circuit board
 ```
 You can buy the circuit board here:
