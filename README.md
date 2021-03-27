@@ -4,16 +4,16 @@ I made a circuit board to detect oxygen and display it on the internet. This cou
 
 Parts:
 ```
-1 conductive paint/solder
+1 conductive paint/solder "910-CP1-5S CP1-5S Conductive Paint LR"
 1 2462 OpAmp
 2 10 uF electrolytic capacitors
 2 100 nF capacitors
 1 10 ohm resistor
 2 4.7k ohm resistors
 3 10k ohm resistors
-1 MKR wifi 1010
+1 MKR wifi 1010 arduino chip
 1 560 ohm resistor
-1 LCD display with potentiometer resisor
+1 LCD display with potentiometer resistor "1528-1502-ND LCD MOD 32DIG 16X2 TRANSMISV WHT"
 1 EC410 oxygen sensor
 1 circuit board
 ```
