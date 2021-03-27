@@ -6,7 +6,7 @@ Parts:
 ```
 1 conductive paint/solder
 1 2462 OpAmp
-2 10 uF capacitors
+2 10 uF electrolytic capacitors
 2 100 nF capacitors
 1 10 ohm resistor
 2 4.7k ohm resistors
