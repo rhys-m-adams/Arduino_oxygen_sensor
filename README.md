@@ -28,4 +28,4 @@ In the Arduino IDE, I had to install the board manager for MKR Wifi 1010 by inst
 The O2 sensor is not accurate for normal air. The sensitivity is determined by the RGain resistor, so these images are just for illustrative purposes. However, this sensor can detect when its in a functioning anaerobic chamber.
 
 Once the chip is plugged in, it will display an ip address. If you visit that address you will see the chip's measurement history.
-![Back](website.png "back")
+![Website](website.png "website")
