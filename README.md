@@ -32,7 +32,7 @@ In the Arduino IDE, I had to install the board manager for MKR Wifi 1010 by inst
 The O2 sensor is not accurate for normal air. The sensitivity is determined by the RGain resistor, so these images are just for illustrative purposes. However, this sensor can detect when it's in a functioning anaerobic chamber.
 
 ##### How does it generally work?
-The EC410 needs to maintain a potential difference of 600 mV. I implemented this by smoothing the Arduino's PWM (4.7k ohm and 10 uF capacitors) and applying this smoothed signal to the + pins of the OP amp. The EC410 sensor can change a bit, and the potentials are adaptively compensited by - pins of the OP amp. I implemented this as the schematic that I found at figure 4 of
+The EC410 needs to maintain a potential difference of 600 mV. I implemented this by smoothing the Arduino's PWM (4.7k ohm and 10 uF capacitors) and applying this smoothed signal to the + pins of the OP amp. The EC410 sensor can change a bit, and the potentials are adaptively compensated by the - pins of the OP amp. I implemented this as the schematic that I found at figure 4 of
 
 https://www.sgxsensortech.com/content/uploads/2014/08/A1A-EC_SENSORS_AN2-Design-of-Electronics-for-EC-Sensors-V4.pdf
 
