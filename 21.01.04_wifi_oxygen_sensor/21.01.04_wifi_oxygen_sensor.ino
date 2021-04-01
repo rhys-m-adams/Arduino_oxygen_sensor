@@ -1,4 +1,6 @@
 // Interfacing Arduino with LCD example
+ //Rhys M. Adams
+ //
  
 // include the library code
 #include <LiquidCrystal.h>
@@ -154,38 +156,17 @@ void printWEB() {
             }
             client.print("</table></tbody></body></html>");
             
-            //client.print("Click <a href=\"/H\">here</a> turn the LED on<br>");
-            //client.print("Click <a href=\"/L\">here</a> turn the LED off<br>");
-
-            //int randomReading = analogRead(A1);
-            //client.print("Random reading from analog pin: ");
-            //client.print(randomReading);
-
-            // The HTTP response ends with another blank line:
-            //client.println();
+            
             // break out of the while loop:
             break;
           }
           else {      // if you got a newline, then clear currentLine:
             currentLine = "";
           }
-        //}
-        //else if (c != '\r') {    // if you got anything else but a carriage return character,
-        //  currentLine += c;      // add it to the end of the currentLine
-        //}
-
-        //if (currentLine.endsWith("GET /H")) {
-        //digitalWrite(ledPin, HIGH);
-        //}
-        //if (currentLine.endsWith("GET /L")) {
-        //digitalWrite(ledPin, LOW);
-        //}
-
       }
     }
     // close the connection:
     client.stop();
-    //Serial.println("client disconnected");
   }
 }
 

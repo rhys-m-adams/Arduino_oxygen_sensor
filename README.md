@@ -29,7 +29,14 @@ Solder all the parts in, except for the O2 sensor. For the O2 sensor I used cond
 ![Back](back.JPG "back")
 In the Arduino IDE, I had to install the board manager for MKR Wifi 1010 by installing "Arduino SAMD boards". Make sure to change it for your network and password.
 
-The O2 sensor is not accurate for normal air. The sensitivity is determined by the RGain resistor, so these images are just for illustrative purposes. However, this sensor can detect when its in a functioning anaerobic chamber.
+The O2 sensor is not accurate for normal air. The sensitivity is determined by the RGain resistor, so these images are just for illustrative purposes. However, this sensor can detect when it's in a functioning anaerobic chamber.
 
-Once the chip is plugged in, it will display an ip address. If you visit that address you will see the chip's measurement history.
+##### How does it generally work?
+The EC410 needs to maintain a potential difference of 600 mV. I implemented this by smoothing the Arduino's PWM (4.7k ohm and 10 uF capacitors) and applying this smoothed signal to the + pins of the OP amp. The EC410 sensor can change a bit, and the potentials are adaptively compensited by - pins of the OP amp. I implemented this as the schematic that I found at figure 4 of
+
+https://www.sgxsensortech.com/content/uploads/2014/08/A1A-EC_SENSORS_AN2-Design-of-Electronics-for-EC-Sensors-V4.pdf
+
+
+
+Once the chip is plugged in, it will display an ip address. If you visit that address you will see the chip's measurement history. I wrote the table so that it should be pretty easily queried by python's pandas.read_html() method.
 ![Website](website.png "website")
