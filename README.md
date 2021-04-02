@@ -1,6 +1,6 @@
 # Arduino_oxygen_sensor
 
-I made a circuit board to detect oxygen and display it on the internet. This could be useful for anaerobic chamber monitoring.
+I made a circuit board to detect gas oxygen and display it on the internet. This is not a liquid oxygen sensor. This could be useful for anaerobic chamber monitoring.
 
 Parts:
 ```
