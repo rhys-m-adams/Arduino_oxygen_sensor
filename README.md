@@ -27,12 +27,16 @@ https://oshpark.com/shared_projects/SpwukUbW
 Solder all the parts in, except for the O2 sensor. For the O2 sensor I used conductive paint since the instructions say that heat can damage it.
 ![Front](front.JPG "Front")
 ![Back](back.JPG "back")
+Please excuse the wild wire lengths - I didn't have access to a proper wire cutter when I made this board so I used an ill-suited plier with cutting edges that was too thick for electronics.
+
 In the Arduino IDE, I had to install the board manager for MKR Wifi 1010 by installing "Arduino SAMD boards". Make sure to change it for your network and password.
 
 The O2 sensor is not accurate for normal air. The sensitivity is determined by the RGain resistor, so these images are just for illustrative purposes. However, this sensor can detect when it's in a functioning anaerobic chamber.
 
 ##### How does it generally work?
-The EC410 needs to maintain a potential difference of 600 mV. I implemented this by smoothing the Arduino's PWM (4.7k ohm and 10 uF capacitors) and applying this smoothed signal to the + pins of the OP amp. The EC410 sensor can change a bit, and the potentials are adaptively compensated by the - pins of the OP amp. I implemented this as the schematic that I found at figure 4 of
+The EC410 needs to maintain a potential difference of 600 mV. I implemented this by smoothing the Arduino's Pulse Width Modulation (PWWM, 4.7k ohm and 10 uF capacitors) and applying this smoothed signal to the + pins of the OP amp. The issue is that arduino's analog output is actually a square wave. The average of this wave might be 2.1 V, but at any moment it is either 0 or 5 V. So I used a capacitor to store a bit of the charge, and a resister to protect the arduino from back voltage. The average voltage should be smoothed and acts an anchor point for the opamp, which can also handle larger currents. 
+
+The EC410 sensor can change a bit, and the potentials are adaptively compensated by the - pins of the OP amp. I implemented this as the schematic that I found at figure 4 of
 
 https://www.sgxsensortech.com/content/uploads/2014/08/A1A-EC_SENSORS_AN2-Design-of-Electronics-for-EC-Sensors-V4.pdf
 
