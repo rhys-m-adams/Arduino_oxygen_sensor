@@ -34,7 +34,7 @@ In the Arduino IDE, I had to install the board manager for MKR Wifi 1010 by inst
 The O2 sensor is not accurate for normal air. The sensitivity is determined by the RGain resistor, so these images are just for illustrative purposes. However, this sensor can detect when it's in a functioning anaerobic chamber.
 
 ##### How does it generally work?
-The EC410 needs to maintain a potential difference of 600 mV. I implemented this by smoothing the Arduino's Pulse Width Modulation (PWWM, 4.7k ohm and 10 uF capacitors) and applying this smoothed signal to the + pins of the OP amp. The issue is that arduino's analog output is actually a square wave. The average of this wave might be 2.1 V, but at any moment it is either 0 or 5 V. So I used a capacitor to store a bit of the charge, and a resister to protect the arduino from back voltage. The average voltage should be smoothed and acts an anchor point for the opamp, which can also handle larger currents. 
+The EC410 needs to maintain a potential difference of 600 mV. I implemented this by smoothing the Arduino's Pulse Width Modulation (PWM, 4.7k ohm and 10 uF capacitors) and applying this smoothed signal to the + pins of the OP amp. I have set the virtual ground to be 2.95 V and the 600 mV higer + pin to be 3.55 V. The issue is that arduino's analog output is actually a square wave. The average of this wave might be 2.95 V, but at any moment it is either 0 or 5 V. So I used a capacitor to store a bit of the charge, and a resister to protect the arduino from back voltage. The average voltage should be smoothed and acts an anchor point for the opamp, which can also handle larger currents. 
 
 The EC410 sensor can change a bit, and the potentials are adaptively compensated by the - pins of the OP amp. I implemented this as the schematic that I found at figure 4 of
 
@@ -42,10 +42,10 @@ https://www.sgxsensortech.com/content/uploads/2014/08/A1A-EC_SENSORS_AN2-Design-
 
 
 
-Once the chip is plugged in and the program ./21.01.04_wifi_oxygen_sensor/21.01.04_wifi_oxygen_sensor.ino has been uploaded to the arduino chip, it will display an ip address. The program needs wifi credentials, default is set to "guest" network with no password. You can change this on lines 11 and 12,:
+Once the chip is plugged in and the program ./21.01.04_wifi_oxygen_sensor/21.01.04_wifi_oxygen_sensor.ino has been uploaded to the arduino chip, it will display an ip address. The program needs wifi credentials to connect to a network, the default is set to "guest" network with no password. You can change this on lines 11 and 12 of the program:
 ```
 char ssid[] = "guest";        // your network SSID (name)
 char pass[] = "";    // your network password (use for WPA, or use as key for WEP)
 ```
-. If you visit that address you will see the chip's measurement history. I wrote the table so that it should be pretty easily queried by python's pandas.read_html() method.
+If you visit the IP address on the LCD display you will see the chip's measurement history. I wrote the table so that it should be pretty easily queried by python's pandas.read_html() method.
 ![Website](website.png "website")
