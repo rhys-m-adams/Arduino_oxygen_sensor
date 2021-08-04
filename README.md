@@ -42,5 +42,10 @@ https://www.sgxsensortech.com/content/uploads/2014/08/A1A-EC_SENSORS_AN2-Design-
 
 
 
-Once the chip is plugged in and the program 21.01.04_wifi_oxygen_sensor.ino has been uploaded to the arduino chip, it will display an ip address. If you visit that address you will see the chip's measurement history. I wrote the table so that it should be pretty easily queried by python's pandas.read_html() method.
+Once the chip is plugged in and the program ./21.01.04_wifi_oxygen_sensor/21.01.04_wifi_oxygen_sensor.ino has been uploaded to the arduino chip, it will display an ip address. The program needs wifi credentials, default is set to "guest" network with no password. You can change this on lines 11 and 12,:
+```
+char ssid[] = "guest";        // your network SSID (name)
+char pass[] = "";    // your network password (use for WPA, or use as key for WEP)
+```
+. If you visit that address you will see the chip's measurement history. I wrote the table so that it should be pretty easily queried by python's pandas.read_html() method.
 ![Website](website.png "website")
